@@ -15,7 +15,7 @@ int main()
 	}
 	else
 	{
-		for (size = 0, temp1 = x; temp1 >= 1; )
+		for (size = 0, temp1 = x; temp1 >= 1; )       //计算出输入数字的位数
 		{
 			temp1 = temp1 / 10;
 			size++;
@@ -25,19 +25,19 @@ int main()
 			temp = temp / 10;
 			num = pow(10, count + 1);
 			arr[count] = x % num;
-			if (count == 0)
+			if (count == 0)         //在count为0时特殊处理，防止混淆
 			{
 				arr1[count] = arr[count];
 				devertednum = devertednum + arr1[count] * pow(10, size - 1);
 			}
-			else
+			else       //通过运算转化使简单求余后的多位数转化为对应位数上的单个数字，并乘以相应的10^n后累加进入算出的反转数
 			{
 				arr1[count] = (arr[count] - arr[count - 1]) / (num / 10);
 				devertednum = devertednum + arr1[count] * pow(10, size - 1);
 			}
-			size--;
+			size--;         //记得减一
 		}
-		if (devertednum == x)
+		if (devertednum == x)      
 		{
 			printf("true\n");
 		}
