@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	long long int x, count,temp1, size, num, devertednum = 0;
+	int arr[100], arr1[100];
+	scanf_s("%lld", &x);
+	if (x < 0)
+	{
+		printf("false\n");
+	}
+	else if (x == 0)
+	{
+		printf("true\n");
+	}
+	else
+	{
+		for (size = 0, temp1 = x; temp1 >= 1; )
+		{
+			temp1 = temp1 / 10;
+			size++;
+		}
+		for (int temp = x, count = 0; temp >= 1; count++)
+		{
+			temp = temp / 10;
+			num = pow(10, count + 1);
+			arr[count] = x % num;
+			if (count == 0)
+			{
+				arr1[count] = arr[count];
+				devertednum = devertednum + arr1[count] * pow(10, size - 1);
+			}
+			else
+			{
+				arr1[count] = (arr[count] - arr[count - 1]) / (num / 10);
+				devertednum = devertednum + arr1[count] * pow(10, size - 1);
+			}
+			size--;
+		}
+		if (devertednum == x)
+		{
+			printf("true\n");
+		}
+		else
+		{
+			printf("false\n");
+		}
+	}
+	return 0;
+}
