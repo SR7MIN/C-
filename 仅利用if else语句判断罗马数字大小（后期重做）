@@ -1,0 +1,88 @@
+#include<stdio.h>
+
+int main()
+{
+	char s[16];
+	int temp = 0, length = 0, result, Itimes = 0, Vtimes = 0, Xtimes = 0, Ltimes = 0, Ctimes = 0, Dtimes = 0, Mtimes = 0;
+	scanf("%s", s);
+	while (s[length] != '\0')
+	{
+		length++;
+	}
+	if (s[0] == 'I' && length == 2)
+	{
+		if (s[1] == 'V')
+		{
+			result = 4;
+		}
+		if (s[1] == 'X')
+		{
+			result = 9;
+		}
+	}
+	else if (s[0] == 'X' && length == 2)
+	{
+		if (s[1] == 'L')
+		{
+			result = 40;
+		}
+		if (s[1] == 'C')
+		{
+			result = 90;
+		}
+	}
+	else if (s[0] == 'C' && length == 2)
+	{
+		if (s[1] == 'D')
+		{
+			result = 400;
+		}
+		if (s[1] == 'M')
+		{
+			result = 900;
+		}
+	}
+	else
+	{
+		while (temp < length)
+		{
+			if (s[temp] == 'I')
+			{
+				Itimes++;
+			}
+			else if (s[temp] == 'V')
+			{
+				Vtimes++;
+			}
+			else if (s[temp] == 'X')
+			{
+				Xtimes++;
+			}
+			else if (s[temp] == 'L')
+			{
+				Ltimes++;
+			}
+			else if (s[temp] == 'C')
+			{
+				Ctimes++;
+			}
+			else if (s[temp] == 'D')
+			{
+				Dtimes++;
+			}
+			else if (s[temp] == 'M')
+			{
+				Mtimes++;
+			}
+			temp++;
+		}
+	}
+	result = Itimes * 1 + Vtimes * 5 + Xtimes * 10 + Ltimes * 50 + Ctimes * 100 + Dtimes * 500 + Mtimes * 1000;
+	printf("%d", result);
+	return 0;
+}
+
+
+
+//过于简单不需要注释了看来
+//后期重新想办法解题
