@@ -46,7 +46,7 @@ int main()
 	{
 		while (temp < length)
 		{
-			if (s[temp] == 'I')
+		/*if (s[temp] == 'I')
 			{
 				Itimes++;
 			}
@@ -74,7 +74,17 @@ int main()
 			{
 				Mtimes++;
 			}
-			temp++;
+			temp++;*/
+			switch (s[temp])
+			{
+			    case 'I':Itimes++, temp++; continue;
+			    case 'V':Vtimes++, temp++; continue;
+			    case 'X':Xtimes++, temp++; continue;
+			    case 'L':Ltimes++, temp++; continue;
+			    case 'C':Ctimes++, temp++; continue;
+			    case 'D':Dtimes++, temp++; continue;
+			    case 'M':Mtimes++, temp++; continue;
+			}
 		}
 	}
 	result = Itimes * 1 + Vtimes * 5 + Xtimes * 10 + Ltimes * 50 + Ctimes * 100 + Dtimes * 500 + Mtimes * 1000;
