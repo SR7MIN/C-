@@ -1,0 +1,37 @@
+#include<stdio.h>
+int main()
+{
+    int n, k, m, mod, times=0, end=0;
+    scanf("%d%d%d", &n, &k, &m);
+    if (m < n - k)
+    {
+        end = k + m;
+    }
+    else if (m == n - k)
+    {
+        end = 0;
+    }
+    else if (m > n - k)
+    {
+        mod = (m - (n - k)) % n;
+        times = (m - (n - k) - mod) / n;
+        if (mod == 0)
+        {
+            end = 0;
+        }
+        else if (m - (n - k) - mod == 0)
+        {
+            end = n - mod;
+        }
+        else if ((times+1) % 2 == 1)
+        {
+            end = n - mod;
+        }
+        else if (times % 2 == 1)
+        {
+            end = mod;
+        }
+    }
+    printf("%d", end);
+    return 0;
+}
